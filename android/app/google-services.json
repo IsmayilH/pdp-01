@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "650365962319",
+    "project_id": "pdp-1-4715a",
+    "storage_bucket": "pdp-1-4715a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:650365962319:android:fe65c275825fa4456ac23a",
+        "android_client_info": {
+          "package_name": "com.pdp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "650365962319-gh887jobers98dc4mf10tt8afq6tou8h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDR7K7RbtCKvb5zgQUBzvpj167YBuht2Sw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "650365962319-gh887jobers98dc4mf10tt8afq6tou8h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
