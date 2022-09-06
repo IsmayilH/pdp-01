@@ -11,7 +11,9 @@ const HomeScreen = () => {
   };
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Home screen</Text>
+      <Text testID="home" style={styles.title}>
+        Home screen
+      </Text>
       <Button
         style={styles.button}
         icon="camera"

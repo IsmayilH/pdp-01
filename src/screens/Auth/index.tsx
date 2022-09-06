@@ -70,7 +70,7 @@ const Auth = () => {
         {isLogin ? (
           <Text>Don't have an account? </Text>
         ) : (
-          <Text>Alreaty have an account ?</Text>
+          <Text>Already have an account ?</Text>
         )}
 
         <Button onPress={() => setIsLogin(!isLogin)}>
