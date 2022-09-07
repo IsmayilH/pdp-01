@@ -31,9 +31,6 @@ const App = () => {
           <RootNavigator />
         </PaperProvider>
       </NavigationContainer>
-      <View>
-        <Text testID="home">Home</Text>
-      </View>
     </>
   );
 };
