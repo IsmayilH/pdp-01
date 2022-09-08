@@ -22,7 +22,10 @@ const RootNavigator = () => {
   }, []);
 
   return (
-    <RootStack.Navigator screenOptions={{}}>
+    <RootStack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}>
       {user ? (
         <RootStack.Screen name=" " component={TabNavigation} />
       ) : (

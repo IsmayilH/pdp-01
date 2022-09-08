@@ -1,10 +1,10 @@
 import React from 'react';
 import {FlatList} from 'react-native';
 import DataListItem from './DataListItem.tsx';
-import {IPeopleResponse} from '../../api/types/getPeople.types';
+import {IPlanetResponse} from '../../api/types/getPlanet.types';
 
 interface IDataList {
-  data: IPeopleResponse[];
+  data: IPlanetResponse[];
 }
 
 const DataList: React.FC<IDataList> = ({data}: IDataList): JSX.Element => {

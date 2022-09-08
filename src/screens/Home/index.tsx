@@ -2,6 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {Button} from 'react-native-paper';
 import auth from '@react-native-firebase/auth';
+import Home from '../../components/Home';
 
 const HomeScreen = () => {
   const logoutUser = () => {
@@ -14,11 +15,8 @@ const HomeScreen = () => {
       <Text testID="home" style={styles.title}>
         Home screen
       </Text>
-      <Button
-        style={styles.button}
-        icon="camera"
-        mode="contained"
-        onPress={logoutUser}>
+      <Home />
+      <Button style={styles.button} mode="contained" onPress={logoutUser}>
         Logout
       </Button>
     </View>
