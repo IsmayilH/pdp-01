@@ -11,12 +11,14 @@ const HomeScreen = () => {
       .then(() => console.log('User signed out!'));
   };
   return (
-    <View style={styles.container}>
-      <Text testID="home" style={styles.title}>
-        Home screen
-      </Text>
+    <View testID="home" style={styles.container}>
+      <Text style={styles.title}>Home screen</Text>
       <Home />
-      <Button style={styles.button} mode="contained" onPress={logoutUser}>
+      <Button
+        testID="logout-button"
+        style={styles.button}
+        mode="contained"
+        onPress={logoutUser}>
         Logout
       </Button>
     </View>

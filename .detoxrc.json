@@ -6,7 +6,7 @@
     "ios": {
       "type": "ios.app",
       "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/pdp.app",
-      "build": "xcodebuild -workspace ios/pdp.xcworkspace -scheme pdp -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build"
+      "build": "xcodebuild -workspace ios/pdp.xcworkspace -scheme pdp -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build"    
     },
     "android": {
       "type": "android.apk",

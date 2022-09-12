@@ -17,10 +17,6 @@ const Search = () => {
     setResults(res.results);
   };
 
-  useEffect(() => {
-    console.log('results :>> ', results);
-  }, [results]);
-
   return (
     <View style={styles.container}>
       <Searchbar

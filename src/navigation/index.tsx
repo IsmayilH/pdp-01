@@ -23,6 +23,7 @@ const RootNavigator = () => {
 
   return (
     <RootStack.Navigator
+      initialRouteName="HomeScreen"
       screenOptions={{
         headerShown: false,
       }}>

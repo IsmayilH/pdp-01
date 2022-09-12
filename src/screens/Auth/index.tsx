@@ -31,6 +31,7 @@ const Auth = () => {
       setPasswordRepeat('');
       return;
     }
+
     auth()
       .createUserWithEmailAndPassword(email, password)
       .then(() => {
@@ -74,6 +75,13 @@ const Auth = () => {
           setDialoMessage('That email address is invalid!');
           setDialogVisible(true);
         }
+        if (error.code === 'auth/user-not-found') {
+          console.log('That email address is not fount!');
+          setEmail('');
+          setPassword('');
+          setDialoMessage('That email address is not found!');
+          setDialogVisible(true);
+        }
         if (error.code === 'auth/wrong-password') {
           console.log('That password is incorrect!');
           setPassword('');
@@ -85,12 +93,13 @@ const Auth = () => {
 
   return (
     <>
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView testID="auth-screen" style={styles.container}>
         <Text style={{fontSize: 24, fontWeight: '700'}}>
           {!isLogin ? 'Registration' : 'Login'}
         </Text>
         <View style={styles.formContainer}>
           <TextInput
+            testID="email-input"
             value={email}
             onChangeText={text => setEmail(text)}
             label="Email"
@@ -99,6 +108,7 @@ const Auth = () => {
             keyboardType="email-address"
           />
           <TextInput
+            testID="password-input"
             value={password}
             onChangeText={text => setPassword(text)}
             label="Password"
@@ -108,32 +118,36 @@ const Auth = () => {
           />
           {!isLogin && (
             <TextInput
+              testID="password-repeat-input"
               value={passwordRepeat}
               onChangeText={text => setPasswordRepeat(text)}
               label="Password Repeat"
               mode="outlined"
               style={styles.input}
-              secureTextEntry={true}
+              secureTextEntry={false}
             />
           )}
           {isLogin ? (
-            <Button mode="contained" onPress={loginUser}>
+            <Button testID="login-button" mode="contained" onPress={loginUser}>
               Login
             </Button>
           ) : (
-            <Button mode="contained" onPress={registerNewUser}>
+            <Button
+              testID="register-button"
+              mode="contained"
+              onPress={registerNewUser}>
               Register
             </Button>
           )}
         </View>
         <View style={styles.footer}>
           {isLogin ? (
-            <Text>Don't have an account? </Text>
+            <Text testID="not-account">Don't have an account? </Text>
           ) : (
-            <Text>Already have an account ?</Text>
+            <Text testID="have-account">Already have an account ?</Text>
           )}
 
-          <Button onPress={() => setIsLogin(!isLogin)}>
+          <Button testID="switch-login" onPress={() => setIsLogin(!isLogin)}>
             {isLogin ? 'Register' : 'Login'}
           </Button>
         </View>
@@ -141,12 +155,14 @@ const Auth = () => {
 
       <Portal>
         <Dialog visible={dialogVisible} onDismiss={hideDialog}>
-          <Dialog.Title>Error</Dialog.Title>
+          <Dialog.Title testID="error">Error</Dialog.Title>
           <Dialog.Content>
             <Paragraph>{dialogMessage}</Paragraph>
           </Dialog.Content>
           <Dialog.Actions>
-            <Button onPress={hideDialog}>Done</Button>
+            <Button testID="error-done-button" onPress={hideDialog}>
+              Done
+            </Button>
           </Dialog.Actions>
         </Dialog>
       </Portal>
