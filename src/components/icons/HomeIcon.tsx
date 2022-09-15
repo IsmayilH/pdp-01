@@ -6,6 +6,7 @@ const HomeIcon = (props: SvgProps) => {
 
   return (
     <Svg
+      testID="home-icon"
       width={width || 25}
       height={height || 25}
       fill="none"

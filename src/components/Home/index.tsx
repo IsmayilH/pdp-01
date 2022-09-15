@@ -26,7 +26,7 @@ const Home = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <View testID="home-component" style={styles.container}>
       {loading && <ActivityIndicator size="large" />}
       {currentData && (
         <PlanetCard

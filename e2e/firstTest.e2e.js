@@ -25,8 +25,11 @@ describe('App', () => {
     await element(by.id('email-input')).typeText(email);
     await element(by.id('password-input')).typeText(password);
     await element(by.id('login-button')).tap();
-    // await sleep(2000);
-    // await expect(element(by.id('home'))).toBeVisible();
+  }
+
+  async function logout() {
+    await element(by.id('logout-button')).tap();
+    await waitFor(element(by.id('auth-screen'))).toBeVisible();
   }
 
   async function registerUser(email, password, passwordRepeat) {
@@ -60,10 +63,6 @@ describe('App', () => {
 
     await loginUser('asm123mail.com', 'qwerty123');
 
-    // await element(by.id('email-input')).typeText('asm123mail.com');
-    // await element(by.id('password-input')).typeText('qwerty123');
-    // await element(by.id('login-button')).tap();
-
     await waitFor(element(by.id('error'))).toBeVisible();
     await waitFor(
       element(by.text('That email address is invalid!')),
@@ -83,9 +82,6 @@ describe('App', () => {
     await element(by.id('error-done-button')).tap();
 
     await loginUser('asm@gmail.com', 'qwerty12345');
-    // await element(by.id('email-input')).typeText('asm@gmail.com');
-    // await element(by.id('password-input')).typeText('qwerty12345');
-    // await element(by.id('login-button')).tap();
 
     await waitFor(element(by.id('error'))).toBeVisible();
     await waitFor(
@@ -138,5 +134,71 @@ describe('App', () => {
     await expect(element(by.id('logout-button'))).toBeVisible();
     await element(by.id('logout-button')).tap();
     await waitFor(element(by.id('auth-screen'))).toBeVisible();
+  });
+
+  it('should go through application', async () => {
+    await switchToLogin();
+    await loginUser('asm@gmail.com', 'qwerty123');
+
+    await sleep(1000);
+
+    await waitFor(element(by.id('card')))
+      .toBeVisible()
+      .withTimeout(2000);
+    await sleep(1000);
+    await expect(element(by.id('card-wrapper'))).toBeVisible();
+    await expect(element(by.id('card-content'))).toBeVisible();
+
+    for (let i = 0; i <= 10; i += 1) {
+      await element(by.id('next-button')).tap();
+      await waitFor(element(by.id('card')))
+        .toBeVisible()
+        .withTimeout(3000);
+
+      await expect(element(by.id('card-wrapper'))).toBeVisible();
+      await expect(element(by.id('card-content'))).toBeVisible();
+    }
+
+    for (let i = 0; i <= 9; i += 1) {
+      await element(by.id('prev-button')).tap();
+      await waitFor(element(by.id('card')))
+        .toBeVisible()
+        .withTimeout(3000);
+
+      await expect(element(by.id('card-wrapper'))).toBeVisible();
+      await expect(element(by.id('card-content'))).toBeVisible();
+    }
+
+    sleep(2000);
+
+    await expect(element(by.label('Search'))).toBeVisible();
+    await element(by.label('Search')).tap();
+
+    await expect(element(by.id('search-title-container'))).toBeVisible();
+    await expect(element(by.id('search-title'))).toBeVisible();
+    await expect(element(by.id('search-icon-container'))).toBeVisible();
+    await expect(element(by.id('search-button'))).toBeVisible();
+    await expect(element(by.id('search-tab'))).toBeVisible();
+    await element(by.id('search-tab')).tap();
+    await element(by.id('search-bar')).typeText('tat');
+    await element(by.id('search-button')).tap();
+
+    await waitFor(element(by.id('search-card')))
+      .toBeVisible()
+      .withTimeout(2000);
+    await element(by.id('search-button')).tap();
+    await waitFor(element(by.label('Planet Name - Tatooine')))
+      .toBeVisible()
+      .withTimeout(2000);
+
+    await sleep(1000);
+    await element(by.id('search-bar')).typeText('tatasd');
+    await element(by.id('search-button')).tap();
+    await element(
+      by.label('OK').and(by.type('_UIAlertControllerActionView')),
+    ).tap();
+
+    await element(by.id('home-tab')).tap();
+    await logout();
   });
 });

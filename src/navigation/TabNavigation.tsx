@@ -14,9 +14,9 @@ const TabNavigation = () => {
       screenOptions={({route}) => ({
         tabBarIcon: () => {
           if (route.name === 'Home') {
-            return <HomeIcon color={colors.backdrop} />;
+            return <HomeIcon testID="home-icon" color={colors.backdrop} />;
           } else {
-            return <SearchIcon color={colors.backdrop} />;
+            return <SearchIcon testID="search-icon" color={colors.backdrop} />;
           }
         },
         headerShown: false,
@@ -25,9 +25,22 @@ const TabNavigation = () => {
           fontWeight: '600',
         },
         tabBarActiveTintColor: colors.primary,
+        tabBarTestID: 'tab-bar',
       })}>
-      <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Search" component={SearchScreen} />
+      <Tab.Screen
+        // @ts-ignore
+        testID="home-tab"
+        options={{tabBarTestID: 'home-tab'}}
+        name="Home"
+        component={HomeScreen}
+      />
+      <Tab.Screen
+        // @ts-ignore
+        testID="search-tab"
+        options={{tabBarTestID: 'search-tab'}}
+        name="Search"
+        component={SearchScreen}
+      />
     </Tab.Navigator>
   );
 };

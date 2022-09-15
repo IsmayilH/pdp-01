@@ -12,7 +12,7 @@ const DataListItem: React.FC<IDataListItem> = ({
 }: IDataListItem): JSX.Element => {
   const {name, population, rotation_period} = item;
   return (
-    <View style={styles.container}>
+    <View testID="search-card" style={styles.container}>
       <Card style={styles.card}>
         <Card.Content>
           <Title>{`Planet Name - ${name}`}</Title>

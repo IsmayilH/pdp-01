@@ -26,9 +26,9 @@ const CardItem: React.FC<ICardItem> = ({
     population,
   } = data;
   return (
-    <View style={styles.container}>
-      <Card>
-        <Card.Content>
+    <View testID="card" style={styles.container}>
+      <Card testID="card-wrapper">
+        <Card.Content testID="card-content">
           <Title>{`Planet Name - ${name}`}</Title>
           <Paragraph>{`Population - ${population}`}</Paragraph>
           <Paragraph>{`Rotation period - ${rotation_period}`}</Paragraph>
@@ -41,8 +41,11 @@ const CardItem: React.FC<ICardItem> = ({
         </Card.Content>
         <Card.Cover source={{uri: 'https://picsum.photos/700'}} />
         <Card.Actions>
-          <Button onPress={onPrevPress}>Prev</Button>
+          <Button testID="prev-button" onPress={onPrevPress}>
+            Prev
+          </Button>
           <Button
+            testID="next-button"
             onPress={() => {
               onNextPress();
             }}>
