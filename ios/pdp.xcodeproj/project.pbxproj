@@ -14,7 +14,7 @@
 		25C624CDB379537764964580 /* libPods-pdp-pdpTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1709A6606E349CF8E329A2A /* libPods-pdp-pdpTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		96AB97558863120BF4C14F44 /* libPods-pdp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 961B23F40E01D342F9B6D54E /* libPods-pdp.a */; };
-		FA8FB9E928BCA626000CDCF0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA8FB9E828BCA626000CDCF0 /* GoogleService-Info.plist */; };
+		FA66DD0B28D89466001E79C9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA66DD0A28D89466001E79C9 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +45,7 @@
 		B1709A6606E349CF8E329A2A /* libPods-pdp-pdpTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-pdp-pdpTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F6F7083A2CE7E6D88B5C267E /* Pods-pdp-pdpTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pdp-pdpTests.debug.xcconfig"; path = "Target Support Files/Pods-pdp-pdpTests/Pods-pdp-pdpTests.debug.xcconfig"; sourceTree = "<group>"; };
-		FA8FB9E828BCA626000CDCF0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "pdp/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FA66DD0A28D89466001E79C9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +88,7 @@
 		13B07FAE1A68108700A75B9A /* pdp */ = {
 			isa = PBXGroup;
 			children = (
+				FA66DD0A28D89466001E79C9 /* GoogleService-Info.plist */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -118,7 +119,6 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				FA8FB9E828BCA626000CDCF0 /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* pdp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* pdpTests */,
@@ -248,7 +248,7 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				FA8FB9E928BCA626000CDCF0 /* GoogleService-Info.plist in Resources */,
+				FA66DD0B28D89466001E79C9 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,7 +504,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3JCN7H2ST6;
 				ENABLE_BITCODE = NO;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = pdp/Info.plist;
@@ -532,7 +532,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3JCN7H2ST6;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = pdp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

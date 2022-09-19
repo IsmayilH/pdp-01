@@ -9,6 +9,7 @@ import {
   Paragraph,
 } from 'react-native-paper';
 import auth from '@react-native-firebase/auth';
+import analytics from '@react-native-firebase/analytics';
 
 const Auth = () => {
   const [isLogin, setIsLogin] = useState<boolean>(false);
@@ -61,6 +62,11 @@ const Auth = () => {
   };
 
   const loginUser = () => {
+    analytics().logEvent('my_custom_event', {
+      id: 101,
+      item: 'My Product Name',
+      description: ['My Product Desc 1', 'My Product Desc 2'],
+    });
     auth()
       .signInWithEmailAndPassword(email, password)
       .then(() => {

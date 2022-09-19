@@ -1,11 +1,14 @@
 import React from 'react';
+import analytics from '@react-native-firebase/analytics';
 import {StyleSheet, Text, View} from 'react-native';
 import {Button} from 'react-native-paper';
 import auth from '@react-native-firebase/auth';
 import Home from '../../components/Home';
 
 const HomeScreen = () => {
-  const logoutUser = () => {
+  const logoutUser = async () => {
+    await analytics().logEvent('log_out');
+
     auth()
       .signOut()
       .then(() => console.log('User signed out!'));

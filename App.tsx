@@ -9,8 +9,8 @@
  */
 
 import {NavigationContainer} from '@react-navigation/native';
-import React from 'react';
-import {Text, View} from 'react-native';
+import React, {useRef} from 'react';
+import analytics from '@react-native-firebase/analytics';
 import {DefaultTheme, Provider as PaperProvider} from 'react-native-paper';
 import RootNavigator from './src/navigation';
 
@@ -24,9 +24,28 @@ const theme = {
 };
 
 const App = () => {
+  const routeNameRef = useRef();
+  const navigationRef = useRef();
   return (
     <>
-      <NavigationContainer>
+      <NavigationContainer
+        ref={navigationRef}
+        onReady={() => {
+          routeNameRef.current = navigationRef.current.getCurrentRoute().name;
+        }}
+        onStateChange={async () => {
+          const previousRouteName = routeNameRef.current;
+          const currentRouteName = navigationRef.current.getCurrentRoute().name;
+
+          if (previousRouteName !== currentRouteName) {
+            console.log('currentRouteName', currentRouteName);
+            await analytics().logScreenView({
+              screen_name: currentRouteName,
+              screen_class: currentRouteName,
+            });
+          }
+          routeNameRef.current = currentRouteName;
+        }}>
         <PaperProvider theme={theme}>
           <RootNavigator />
         </PaperProvider>

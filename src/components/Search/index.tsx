@@ -6,8 +6,9 @@ import {
   Text,
   TextInput,
   Alert,
-  Button,
 } from 'react-native';
+import analytics from '@react-native-firebase/analytics';
+
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {api} from '../../api';
 import {IPlanetResponse} from '../../api/types/getPlanet.types';
@@ -41,6 +42,10 @@ const Search = () => {
   const onChangeSearch = (query: string) => setSearchQuery(query);
 
   const showResult = async () => {
+    analytics().logEvent('search_planets', {
+      search: searchQuery,
+    });
+
     const res = await api.getSearch('planets', searchQuery);
     if (res.count === 0) {
       setSearchQuery('');
