@@ -3,32 +3,32 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>697722181664-0joo85vaa3qk1a1f0uv0dpq30nchlm67.apps.googleusercontent.com</string>
+	<string>650365962319-3ki8d1m3qifehu190m0tk3ge94kdncp7.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.697722181664-0joo85vaa3qk1a1f0uv0dpq30nchlm67</string>
+	<string>com.googleusercontent.apps.650365962319-3ki8d1m3qifehu190m0tk3ge94kdncp7</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCxHhdBm7KOvoq-rOwsAkUiQ6o8JsCp_xc</string>
+	<string>AIzaSyCPehexwBdONjN5vSSTN2EpEUmz9jwWGeM</string>
 	<key>GCM_SENDER_ID</key>
-	<string>697722181664</string>
+	<string>650365962319</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>org.reactjs.native.example.pdp</string>
 	<key>PROJECT_ID</key>
-	<string>pdp-reserved</string>
+	<string>pdp-1-4715a</string>
 	<key>STORAGE_BUCKET</key>
-	<string>pdp-reserved.appspot.com</string>
+	<string>pdp-1-4715a.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<true/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:697722181664:ios:ae8abb989f4fefd2694445</string>
+	<string>1:650365962319:ios:5fbf15bf901163516ac23a</string>
 </dict>
 </plist>
