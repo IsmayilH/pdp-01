@@ -33,3 +33,5 @@ Then we can start testing our app
     detox build -c ios
     detox test -c ios
 ```
+
+\_NOTE: Please make sure you already have Xcode installed. Tests are running on 'iPhone 11' simulator

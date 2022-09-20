@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 import {Card, Paragraph, Title} from 'react-native-paper';
 import {IPlanetResponse} from '../../../api/types/getPlanet.types';
 
@@ -12,7 +13,7 @@ const DataListItem: React.FC<IDataListItem> = ({
 }: IDataListItem): JSX.Element => {
   const {name, population, rotation_period} = item;
   return (
-    <View testID="search-card" style={styles.container}>
+    <TouchableOpacity testID="search-card" style={styles.container}>
       <Card style={styles.card}>
         <Card.Content>
           <Title>{`Planet Name - ${name}`}</Title>
@@ -20,7 +21,7 @@ const DataListItem: React.FC<IDataListItem> = ({
           <Paragraph>{`Rotation period - ${rotation_period}`}</Paragraph>
         </Card.Content>
       </Card>
-    </View>
+    </TouchableOpacity>
   );
 };
 

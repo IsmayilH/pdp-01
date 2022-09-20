@@ -198,6 +198,8 @@ describe('App', () => {
       by.label('OK').and(by.type('_UIAlertControllerActionView')),
     ).tap();
 
+    await element(by.id('search-card')).tap();
+
     await element(by.id('home-tab')).tap();
     await logout();
   });
