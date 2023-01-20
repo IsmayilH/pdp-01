@@ -1,11 +1,14 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 import analytics from '@react-native-firebase/analytics';
 import {StyleSheet, Text, View} from 'react-native';
 import {Button} from 'react-native-paper';
 import auth from '@react-native-firebase/auth';
 import Home from '../../components/Home';
+import {NotificationContext} from '../../context/NotificationContext';
 
 const HomeScreen = () => {
+  const {onDisplayNotification} = useContext(NotificationContext);
+
   const logoutUser = async () => {
     await analytics().logEvent('log_out');
 
@@ -17,6 +20,7 @@ const HomeScreen = () => {
     <View testID="home" style={styles.container}>
       <Text style={styles.title}>Home screen</Text>
       <Home />
+      <Button onPress={onDisplayNotification}>Get Local Notification</Button>
       <Button
         testID="logout-button"
         style={styles.button}
