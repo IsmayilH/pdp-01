@@ -4,6 +4,7 @@ import messaging from '@react-native-firebase/messaging';
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 import {Alert} from 'react-native';
+import useAsyncStorageLib from '../hooks/useAsyncStorage';
 
 type Props = {
   children: React.ReactNode;
@@ -25,6 +26,11 @@ async function saveTokenToDatabase(token) {
 }
 
 export const NotificationProvider: React.FC<Props> = ({children}) => {
+  const [storageValue, updateStorage, hydrated] = useAsyncStorageLib(
+    'fcmToken',
+    '',
+  );
+
   const onDisplayNotification = async () => {
     console.log('display');
     // Request permissions (required for iOS)
@@ -59,9 +65,16 @@ export const NotificationProvider: React.FC<Props> = ({children}) => {
     if (enabled) {
       await messaging()
         .getToken()
-        .then(fcmToken => console.log('fcmToken', fcmToken));
+        .then(fcmToken => {
+          updateStorage(fcmToken);
+        });
     }
   };
+
+  useEffect(() => {
+    console.log('storageValue :>> ', storageValue);
+    console.log('hydrated :>> ', hydrated);
+  }, [storageValue, hydrated]);
 
   useEffect(() => {
     onDisplayRemoteNotification();

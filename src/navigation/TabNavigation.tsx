@@ -4,6 +4,8 @@ import HomeScreen from '../screens/Home';
 import SearchScreen from '../screens/Search';
 import {HomeIcon, SearchIcon} from '../components/icons';
 import {useTheme} from 'react-native-paper';
+import InfoScreen from '../screens/Info';
+import InfoIcon from '../components/icons/InfoIcon';
 
 const Tab = createBottomTabNavigator();
 
@@ -15,6 +17,8 @@ const TabNavigation = () => {
         tabBarIcon: () => {
           if (route.name === 'Home') {
             return <HomeIcon testID="home-icon" color={colors.backdrop} />;
+          } else if (route.name === 'Info') {
+            return <InfoIcon testID="info-icon" color={colors.backdrop} />;
           } else {
             return <SearchIcon testID="search-icon" color={colors.backdrop} />;
           }
@@ -40,6 +44,13 @@ const TabNavigation = () => {
         options={{tabBarTestID: 'search-tab'}}
         name="Search"
         component={SearchScreen}
+      />
+      <Tab.Screen
+        // @ts-ignore
+        testID="info-tab"
+        options={{tabBarTestID: 'info-tab'}}
+        name="Info"
+        component={InfoScreen}
       />
     </Tab.Navigator>
   );
